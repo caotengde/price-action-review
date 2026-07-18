@@ -19,28 +19,29 @@
           </div>
         </div>
         <div class="top-actions">
-          <div class="global-progress" aria-label="本地审核进度">
+          <div class="global-progress" aria-label="系统自审通过率">
             <span id="globalProgressText">载入中</span>
             <div class="progress-track"><i id="globalProgressBar"></i></div>
           </div>
           <a id="datasetLink" class="ghost-button" href="https://github.com/caotengde/price-action-review" target="_blank" rel="noreferrer">查看公开数据集</a>
-          <button id="submitReviewButton" class="primary-button" disabled>提交当前图审核</button>
+          <button id="submitReviewButton" class="primary-button" disabled>可选：提交人工意见</button>
         </div>
       </header>
 
       <div class="public-notice">
-        <strong>开放研究：</strong>系统把市场理解拆成原子命题。你的审核先保存在浏览器，提交时将打开一个预填的 GitHub Issue；确认发布后，GitHub Action 会验证并纳入公开数据集。
+        <strong>三层自动自审：</strong>系统已经通过独立状态重算、严格阈值敏感性检查和历史前缀重放自行审核。通过项才进入训练数据；冲突项自动隔离。你无需逐条标注，人工意见仅作为可选补充。
       </div>
 
       <main class="workspace public-workspace">
         <aside class="case-sidebar">
           <div class="sidebar-heading">
-            <div><span class="section-kicker">REVIEW QUEUE</span><h2>审核队列</h2></div>
+            <div><span class="section-kicker">SELF-AUDIT</span><h2>周期自审</h2></div>
             <span id="caseCount" class="count-pill">0</span>
           </div>
           <div id="caseList" class="case-list" aria-live="polite"></div>
           <div class="reviewer-card">
-            <label for="reviewerName">审核者名称</label>
+            <span class="optional-label">可选人工反馈</span>
+            <label for="reviewerName">反馈者名称</label>
             <input id="reviewerName" maxlength="80" placeholder="昵称或 GitHub 用户名（可选）" />
             <label for="experienceLevel">价格行为经验</label>
             <select id="experienceLevel">
@@ -51,7 +52,7 @@
               <option value="EXPERT">专业研究者 / 交易员</option>
             </select>
           </div>
-          <div class="sidebar-note"><span class="status-dot"></span><p>公开标签只用于市场理解规则校准，不构成投资建议，也不会触发订单。</p></div>
+          <div class="sidebar-note"><span class="status-dot"></span><p>自动隔离项不会进入训练集；所有结果只用于市场理解规则校准，不会触发订单。</p></div>
         </aside>
 
         <section class="chart-workbench">
@@ -75,7 +76,7 @@
 
           <div class="chart-card">
             <div class="chart-toolbar">
-              <div><span class="live-indicator"></span><strong>系统图解</strong><span class="muted">点击图表定位遗漏理解</span></div>
+              <div><span class="live-indicator"></span><strong>系统图解</strong><span class="muted">已执行自动交叉审核</span></div>
               <div class="chart-help">图表与判断均绑定不可变案例指纹</div>
             </div>
             <div id="chartStage" class="chart-stage">
@@ -87,9 +88,9 @@
 
           <div class="missing-card">
             <div class="missing-copy">
-              <span class="section-kicker">FALSE NEGATIVE</span>
-              <h3>系统漏掉了什么？</h3>
-              <p>先点击图中位置，再写下应该出现的市场理解。</p>
+              <span class="section-kicker">OPTIONAL FEEDBACK</span>
+              <h3>可选：补充系统遗漏</h3>
+              <p>不需要逐条审核。只有你恰好发现遗漏时才需要填写。</p>
             </div>
             <form id="missingForm" class="missing-form">
               <select id="missingCategory" aria-label="遗漏类型">
@@ -109,17 +110,20 @@
 
         <aside class="review-panel">
           <div class="review-header">
-            <div><span class="section-kicker">SEMANTIC CLAIMS</span><h2>逐条判断</h2></div>
+            <div><span class="section-kicker">SELF-AUDIT RESULT</span><h2>系统自审结果</h2></div>
             <span id="caseProgress" class="case-progress">0 / 0</span>
           </div>
           <div class="filter-row">
             <select id="categoryFilter" aria-label="按类别筛选"><option value="ALL">全部类别</option></select>
+            <select id="selfAuditFilter" aria-label="按自审结论筛选">
+              <option value="EXCLUDED" selected>仅看自动隔离</option><option value="AUTO_ACCEPTED">仅看自动通过</option><option value="ALL">全部自审结果</option>
+            </select>
             <select id="statusFilter" aria-label="按审核状态筛选">
-              <option value="ALL">全部状态</option><option value="UNREVIEWED">待审核</option>
+              <option value="ALL">全部人工状态</option><option value="UNREVIEWED">未人工反馈</option>
               <option value="CORRECT">正确</option><option value="INCORRECT">错误</option><option value="UNCERTAIN">不确定</option>
             </select>
           </div>
-          <div class="keyboard-hint">快捷键 <kbd>1</kbd> 正确 <kbd>2</kbd> 错误 <kbd>3</kbd> 不确定 <kbd>J</kbd>/<kbd>K</kbd> 切换</div>
+          <div class="keyboard-hint">人工反馈完全可选 · 快捷键 <kbd>1</kbd> 正确 <kbd>2</kbd> 错误 <kbd>3</kbd> 不确定</div>
           <div id="reviewItems" class="review-items" aria-live="polite"></div>
         </aside>
       </main>

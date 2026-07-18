@@ -48,6 +48,14 @@ const ERROR_TAGS = [
   ["WRONG_LIFECYCLE", "生命周期错误"], ["OVER_DETECTION", "过度识别"],
   ["OTHER", "其他"],
 ];
+const SELF_AUDIT_REASONS = {
+  "confidence_below_0.55": "置信度不足 0.55",
+  state_challengers_disagree: "不同状态模型未形成多数共识",
+  cross_timeframe_challengers_disagree: "跨周期关系未形成多数共识",
+  developing_bar_differs_from_last_closed_bar: "未收盘K线与上一根完整K线结论不同",
+  not_robust_to_stricter_thresholds: "收紧识别阈值后不再成立",
+  primary_recompute_mismatch: "主模型重算结果不一致",
+};
 const $ = (selector) => document.querySelector(selector);
 
 function escapeHtml(value) {
@@ -133,26 +141,34 @@ function reviewCounts(caseItem) {
   };
 }
 
+function selfAuditCounts(caseItem) {
+  return caseItem.items.reduce((result, item) => {
+    if (item.self_audit?.decision === "AUTO_ACCEPTED") result.accepted += 1;
+    if (item.self_audit?.decision === "EXCLUDED") result.excluded += 1;
+    return result;
+  }, { accepted: 0, excluded: 0, total: caseItem.items.length });
+}
+
 function renderGlobalProgress() {
   if (!state.manifest) return;
-  const totals = state.manifest.cases.reduce((result, item) => {
-    const counts = reviewCounts(item);
-    result.reviewed += counts.reviewed; result.total += counts.total;
+  const totals = state.manifest.self_audit?.summary || state.manifest.cases.reduce((result, item) => {
+    const counts = selfAuditCounts(item);
+    result.auto_accepted += counts.accepted; result.total_items += counts.total;
     return result;
-  }, { reviewed: 0, total: 0 });
-  const percent = totals.total ? Math.round(totals.reviewed / totals.total * 100) : 0;
-  $("#globalProgressText").textContent = `本地 ${totals.reviewed} / ${totals.total} 条 · ${percent}%`;
+  }, { auto_accepted: 0, total_items: 0 });
+  const percent = totals.total_items ? Math.round(totals.auto_accepted / totals.total_items * 100) : 0;
+  $("#globalProgressText").textContent = `自审通过 ${totals.auto_accepted} / ${totals.total_items} 条 · ${percent}%`;
   $("#globalProgressBar").style.width = `${percent}%`;
 }
 
 function renderCaseList() {
   if (!state.manifest) return;
   $("#caseList").innerHTML = state.manifest.cases.map((item) => {
-    const counts = reviewCounts(item);
-    const percent = counts.total ? Math.round(counts.reviewed / counts.total * 100) : 0;
-    return `<button class="case-button ${item.case_id === state.currentCase?.case_id ? "active" : ""} ${percent === 100 ? "complete" : ""}" data-case-id="${escapeHtml(item.case_id)}">
+    const counts = selfAuditCounts(item);
+    const percent = counts.total ? Math.round(counts.accepted / counts.total * 100) : 0;
+    return `<button class="case-button ${item.case_id === state.currentCase?.case_id ? "active" : ""}" data-case-id="${escapeHtml(item.case_id)}">
       <div class="case-button-top"><span class="case-symbol">${escapeHtml(item.symbol)}</span><span class="case-tf">${escapeHtml(item.timeframe)}</span></div>
-      <p>${escapeHtml(translateCode(item.summary.regime))} · ${escapeHtml(translateCode(item.summary.location))}${counts.missing ? ` · 遗漏 ${counts.missing}` : ""}</p>
+      <p>${escapeHtml(translateCode(item.summary.regime))} · 通过 ${counts.accepted} · 隔离 ${counts.excluded}</p>
       <div class="mini-track"><i style="width:${percent}%"></i></div></button>`;
   }).join("");
   document.querySelectorAll(".case-button").forEach((button) => button.addEventListener("click", () => loadCase(button.dataset.caseId)));
@@ -183,7 +199,8 @@ function renderCaseHeader() {
   const summary = item.summary;
   const cells = [["regime", summary.regime], ["context_direction", summary.context_direction], ["leg_direction", summary.leg_direction], ["phase", summary.phase], ["location", summary.location], ["confidence", Number(summary.confidence).toFixed(2)]];
   $("#stateStrip").innerHTML = cells.map(([field, value]) => `<div class="state-cell"><span>${STATE_LABELS[field]}</span><strong>${field === "confidence" ? escapeHtml(value) : codeWithOriginal(value)}</strong></div>`).join("");
-  $("#caseProgress").textContent = `${Object.keys(state.review.annotations).length} / ${item.items.length}`;
+  const auditCounts = selfAuditCounts(item);
+  $("#caseProgress").textContent = `通过 ${auditCounts.accepted} · 隔离 ${auditCounts.excluded}`;
   $("#saveState").textContent = state.review.updated_utc ? `上次保存 ${new Date(state.review.updated_utc).toLocaleString("zh-CN", { hour12: false })}` : "自动保存在本浏览器";
 }
 
@@ -195,10 +212,11 @@ function populateCategoryFilter() {
 }
 
 function filteredItems() {
-  const category = $("#categoryFilter").value; const status = $("#statusFilter").value;
+  const category = $("#categoryFilter").value; const status = $("#statusFilter").value; const audit = $("#selfAuditFilter").value;
   return state.currentCase.items.filter((item) => {
     const itemStatus = state.review.annotations[item.item_id]?.verdict || "UNREVIEWED";
-    return (category === "ALL" || item.category === category) && (status === "ALL" || itemStatus === status);
+    const auditStatus = item.self_audit?.decision || "NOT_AUDITED";
+    return (category === "ALL" || item.category === category) && (status === "ALL" || itemStatus === status) && (audit === "ALL" || auditStatus === audit);
   });
 }
 
@@ -209,9 +227,12 @@ function renderReviewItems() {
   $("#reviewItems").innerHTML = items.map((item) => {
     const annotation = state.review.annotations[item.item_id]; const status = annotation?.verdict || "UNREVIEWED";
     const confidence = item.confidence == null ? "—" : Number(item.confidence).toFixed(2);
+    const audit = item.self_audit; const accepted = audit?.decision === "AUTO_ACCEPTED";
+    const auditLabel = accepted ? "✓ 自动通过" : audit?.decision === "EXCLUDED" ? "⚑ 自动隔离" : "尚未自审";
+    const auditReasons = audit?.reasons?.length ? `<div class="audit-reasons">${audit.reasons.map((reason) => escapeHtml(SELF_AUDIT_REASONS[reason] || reason)).join(" · ")}</div>` : "";
     return `<article class="review-item status-${status} ${item.item_id === state.selectedItemId ? "focused" : ""}" data-item-id="${escapeHtml(item.item_id)}">
-      <div class="claim-body"><div class="claim-meta"><span class="category-label">${escapeHtml(CATEGORY_NAMES[item.category] || item.category)} · ${codeWithOriginal(item.object_type)}</span><span class="confidence">置信 ${confidence}</span></div>
-      <p>${translateStatementHtml(item.statement_cn)}</p>${annotation?.verdict === "INCORRECT" ? `<div class="saved-correction"><strong>你的修正：</strong>${escapeHtml(annotation.corrected_value)}</div>` : ""}</div>
+      <div class="claim-body"><div class="claim-meta"><span class="category-label">${escapeHtml(CATEGORY_NAMES[item.category] || item.category)} · ${codeWithOriginal(item.object_type)}</span><span class="audit-badge ${accepted ? "accepted" : "excluded"}">${auditLabel}</span></div>
+      <p>${translateStatementHtml(item.statement_cn)}</p><div class="claim-audit-meta"><span>模型置信 ${confidence}</span>${audit?.support != null ? `<span>交叉支持 ${audit.support}</span>` : ""}</div>${auditReasons}${annotation?.verdict === "INCORRECT" ? `<div class="saved-correction"><strong>你的修正：</strong>${escapeHtml(annotation.corrected_value)}</div>` : ""}</div>
       <div class="claim-actions"><button class="verdict-button correct ${status === "CORRECT" ? "selected" : ""}" data-verdict="CORRECT">✓ 正确</button><button class="verdict-button incorrect ${status === "INCORRECT" ? "selected" : ""}" data-verdict="INCORRECT">× 错误</button><button class="verdict-button uncertain ${status === "UNCERTAIN" ? "selected" : ""}" data-verdict="UNCERTAIN">? 不确定</button></div></article>`;
   }).join("");
   document.querySelectorAll(".review-item").forEach((element) => element.addEventListener("click", (event) => { state.selectedItemId = element.dataset.itemId; if (!event.target.closest(".verdict-button")) renderReviewItems(); }));
@@ -311,7 +332,7 @@ function moveSelection(delta) {
 }
 
 function bindEvents() {
-  $("#categoryFilter").addEventListener("change", renderReviewItems); $("#statusFilter").addEventListener("change", renderReviewItems);
+  $("#categoryFilter").addEventListener("change", renderReviewItems); $("#selfAuditFilter").addEventListener("change", renderReviewItems); $("#statusFilter").addEventListener("change", renderReviewItems);
   $("#caseImage").addEventListener("click", chartClicked); $("#missingForm").addEventListener("submit", addMissingItem);
   $("#correctionForm").addEventListener("submit", saveCorrection); $("#closeDialog").addEventListener("click", () => $("#correctionDialog").close()); $("#cancelCorrection").addEventListener("click", () => $("#correctionDialog").close());
   $("#submitReviewButton").addEventListener("click", openSubmitDialog); $("#closeSubmitDialog").addEventListener("click", () => $("#submitDialog").close()); $("#cancelSubmit").addEventListener("click", () => $("#submitDialog").close()); $("#confirmSubmit").addEventListener("click", confirmSubmission);

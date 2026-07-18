@@ -1,18 +1,20 @@
 # Public Price Action Semantic Review
 
-Public, owner-centered semantic labels for an explicit multi-timeframe price-action
-interpreter.
+Public self-audit results and optional semantic feedback for an explicit
+multi-timeframe price-action interpreter.
 
 Website: <https://caotengde.github.io/price-action-review/>
 
 ## How collection works
 
-1. Reviewers inspect a fingerprinted chart and atomic interpretation claims.
-2. Labels remain in browser `localStorage` until the reviewer chooses to submit.
-3. The website opens a pre-filled GitHub Issue containing a compressed JSON payload.
-4. A GitHub Action validates the case fingerprint, item IDs, verdicts, corrections,
+1. The system independently recomputes market state with three parameter lenses,
+   applies stricter structure thresholds, and verifies causal prefix replay.
+2. Only auto-accepted claims are admitted to training; unstable claims are excluded.
+3. Optional human feedback remains in browser `localStorage` until submitted.
+4. The website opens a pre-filled GitHub Issue containing a compressed JSON payload.
+5. A GitHub Action validates the case fingerprint, item IDs, verdicts, corrections,
    coordinates, and payload size.
-5. Accepted submissions are stored under `submissions/` and aggregated into
+6. Accepted submissions are stored under `submissions/` and aggregated into
    `data/reviews.jsonl`.
 
 The browser receives no repository token. A GitHub account is required only when
