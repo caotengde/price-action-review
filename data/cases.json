@@ -1,0 +1,1153 @@
+{
+  "schema_version": 1,
+  "dataset_name": "public_owner_centered_price_action_review",
+  "generated_utc": "2026-07-18T03:37:21.503217+00:00",
+  "case_count": 5,
+  "trading_enabled": false,
+  "cases": [
+    {
+      "case_id": "nas100_w1_842740cb5f",
+      "case_fingerprint": "f7e5449c24e861af577295e2d63f0026f32d35adb34564980126b8b03fab012f",
+      "symbol": "NAS100",
+      "timeframe": "W1",
+      "title": "NAS100 · W1 市场理解审核",
+      "data_end_utc": "2026-07-17T17:55:00+00:00",
+      "bar_open_time": "2026-07-13T00:00:00+00:00",
+      "bar_status": "DEVELOPING",
+      "image_url": "./assets/cases/nas100_w1_842740cb5f.png",
+      "image_sha256": "df66c80388de3117cadf029f413edd3527a8309d02ab70a45ecdb4a25942081c",
+      "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
+      "summary": {
+        "regime": "TRANSITION",
+        "context_direction": "BULL",
+        "leg_direction": "BEAR",
+        "phase": "UNRESOLVED",
+        "location": "MIDDLE",
+        "confidence": 0.6
+      },
+      "items": [
+        {
+          "item_id": "review_441ef703df8d8a70",
+          "category": "MARKET_STATE",
+          "object_type": "REGIME",
+          "statement_cn": "W1 市场状态：TRANSITION",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_d995cfd63993be6e",
+          "category": "MARKET_STATE",
+          "object_type": "CONTEXT_DIRECTION",
+          "statement_cn": "W1 背景方向：BULL",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_5105078998d57415",
+          "category": "MARKET_STATE",
+          "object_type": "LEG_DIRECTION",
+          "statement_cn": "W1 当前腿方向：BEAR",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_1fe8860101c47875",
+          "category": "MARKET_STATE",
+          "object_type": "PHASE",
+          "statement_cn": "W1 市场阶段：UNRESOLVED",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_eee8057bab3b8ff8",
+          "category": "MARKET_STATE",
+          "object_type": "LOCATION",
+          "statement_cn": "W1 所处位置：MIDDLE",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_02b650036718fa70",
+          "category": "MARKET_STATE",
+          "object_type": "LEG",
+          "statement_cn": "W1 当前运动性质：BALANCED",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_0830bbc9b6a41f45",
+          "category": "STRUCTURE",
+          "object_type": "BULL_FLAG",
+          "statement_cn": "W1 MICRO BULL_FLAG，生命周期 TOPOLOGY_COMPLETE，方向 BULL，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.865329
+        },
+        {
+          "item_id": "review_fd60f83d0e5df0bb",
+          "category": "STRUCTURE",
+          "object_type": "BULL_FLAG",
+          "statement_cn": "W1 MINOR BULL_FLAG，生命周期 TOPOLOGY_COMPLETE，方向 BULL，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.865329
+        },
+        {
+          "item_id": "review_470631b61c28ff4d",
+          "category": "STRUCTURE",
+          "object_type": "BEAR_FLAG",
+          "statement_cn": "W1 MICRO BEAR_FLAG，生命周期 CONFIRMED，方向 BEAR，语义角色 COUNTERTREND_REVERSAL_ATTEMPT",
+          "confidence": 0.777673
+        },
+        {
+          "item_id": "review_a0bd15b62b425cbe",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "W1 RESISTANCE 区域 30520.3–30934.9，状态 ACTIVE，触碰 2 次",
+          "confidence": 0.6866
+        },
+        {
+          "item_id": "review_aa05a1bac033ef03",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "W1 RESISTANCE 区域 25399.1–26287.3，状态 BROKEN_UP，触碰 3 次",
+          "confidence": 0.819
+        },
+        {
+          "item_id": "review_a0546b07519ede88",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "W1 SUPPORT 区域 23793.5–24183，状态 ACTIVE，触碰 2 次",
+          "confidence": 0.7306
+        },
+        {
+          "item_id": "review_3b71f6677d134e4e",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "W1 MICRO BEAR 通道，状态 ACTIVE，通道位置 0.26",
+          "confidence": 0.755298
+        },
+        {
+          "item_id": "review_4ae7b2eb9a20b83a",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "W1 MICRO BULL 测量移动目标 36206.4，状态 ACTIVE",
+          "confidence": 0.979779
+        },
+        {
+          "item_id": "review_7dd723427ebfdd35",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "W1 MINOR BULL 测量移动目标 36206.4，状态 ACTIVE",
+          "confidence": 0.979779
+        },
+        {
+          "item_id": "review_f261dcee368bf77e",
+          "category": "CROSS_TIMEFRAME",
+          "object_type": "CHILD_INSIDE_PARENT_BALANCE",
+          "statement_cn": "W1→D1：CHILD_INSIDE_PARENT_BALANCE；背景 CONTEXT_COUNTERTREND；当前腿 LEG_AGAINST_PARENT_CONTEXT",
+          "confidence": 0.639601
+        }
+      ]
+    },
+    {
+      "case_id": "nas100_d1_0abb86a2e5",
+      "case_fingerprint": "af17d7d374db67d843df7b41d7532086a62082a128937300f58790a25df951af",
+      "symbol": "NAS100",
+      "timeframe": "D1",
+      "title": "NAS100 · D1 市场理解审核",
+      "data_end_utc": "2026-07-17T17:55:00+00:00",
+      "bar_open_time": "2026-07-17T00:00:00+00:00",
+      "bar_status": "DEVELOPING",
+      "image_url": "./assets/cases/nas100_d1_0abb86a2e5.png",
+      "image_sha256": "04587629f977df35aef1f70ea864d1ffd03d7800c0cb11952c36e71a273231d0",
+      "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
+      "summary": {
+        "regime": "RANGE",
+        "context_direction": "BEAR",
+        "leg_direction": "BEAR",
+        "phase": "ESTABLISHED",
+        "location": "LOWER_EDGE",
+        "confidence": 0.681815
+      },
+      "items": [
+        {
+          "item_id": "review_d21064d8c29e688b",
+          "category": "MARKET_STATE",
+          "object_type": "REGIME",
+          "statement_cn": "D1 市场状态：RANGE",
+          "confidence": 0.681815
+        },
+        {
+          "item_id": "review_168cac5b36e383eb",
+          "category": "MARKET_STATE",
+          "object_type": "CONTEXT_DIRECTION",
+          "statement_cn": "D1 背景方向：BEAR",
+          "confidence": 0.681815
+        },
+        {
+          "item_id": "review_b6c29545ed7d1b76",
+          "category": "MARKET_STATE",
+          "object_type": "LEG_DIRECTION",
+          "statement_cn": "D1 当前腿方向：BEAR",
+          "confidence": 0.681815
+        },
+        {
+          "item_id": "review_66b09be85e8d83bb",
+          "category": "MARKET_STATE",
+          "object_type": "PHASE",
+          "statement_cn": "D1 市场阶段：ESTABLISHED",
+          "confidence": 0.681815
+        },
+        {
+          "item_id": "review_370ce7a073575197",
+          "category": "MARKET_STATE",
+          "object_type": "LOCATION",
+          "statement_cn": "D1 所处位置：LOWER_EDGE",
+          "confidence": 0.681815
+        },
+        {
+          "item_id": "review_fd59cf6c74d5d0d0",
+          "category": "MARKET_STATE",
+          "object_type": "LEG",
+          "statement_cn": "D1 当前运动性质：ROTATION_DOWN",
+          "confidence": 0.681815
+        },
+        {
+          "item_id": "review_efec3008e3c4ce09",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "D1 MICRO DOUBLE_TOP，生命周期 TOPOLOGY_COMPLETE，方向 BEAR，语义角色 RANGE_INTERNAL_STRUCTURE",
+          "confidence": 0.842052
+        },
+        {
+          "item_id": "review_1d4ada490e7045e4",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_BOTTOM",
+          "statement_cn": "D1 MINOR DOUBLE_BOTTOM，生命周期 TOPOLOGY_COMPLETE，方向 BULL，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.729052
+        },
+        {
+          "item_id": "review_b5310b982f1ac258",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_BOTTOM",
+          "statement_cn": "D1 MICRO DOUBLE_BOTTOM，生命周期 TOPOLOGY_COMPLETE，方向 BULL，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.536128
+        },
+        {
+          "item_id": "review_b19360804f096e21",
+          "category": "STRUCTURE",
+          "object_type": "BEAR_FLAG",
+          "statement_cn": "D1 MICRO BEAR_FLAG，生命周期 CONFIRMED，方向 BEAR，语义角色 RANGE_INTERNAL_STRUCTURE",
+          "confidence": 0.755465
+        },
+        {
+          "item_id": "review_ed4d6edcc9c389f7",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "D1 MICRO DOUBLE_TOP，生命周期 CONFIRMED，方向 BEAR，语义角色 RANGE_INTERNAL_STRUCTURE",
+          "confidence": 0.611021
+        },
+        {
+          "item_id": "review_509bcca2df8be981",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "D1 MINOR DOUBLE_TOP，生命周期 CONFIRMED，方向 BEAR，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.749004
+        },
+        {
+          "item_id": "review_f83a76a97c71fcca",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "D1 MINOR DOUBLE_TOP，生命周期 TOPOLOGY_COMPLETE，方向 BEAR，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.83391
+        },
+        {
+          "item_id": "review_bb0436436c5f5eeb",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "D1 INTERMEDIATE DOUBLE_TOP，生命周期 TOPOLOGY_COMPLETE，方向 BEAR，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.791707
+        },
+        {
+          "item_id": "review_3685d45aac3f22c5",
+          "category": "STRUCTURE",
+          "object_type": "BULL_FLAG",
+          "statement_cn": "D1 INTERMEDIATE BULL_FLAG，生命周期 TOPOLOGY_COMPLETE，方向 BULL，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.846028
+        },
+        {
+          "item_id": "review_f9c30ee1e15d130f",
+          "category": "STRUCTURE",
+          "object_type": "BULL_FLAG",
+          "statement_cn": "D1 MAJOR BULL_FLAG，生命周期 TOPOLOGY_COMPLETE，方向 BULL，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.846028
+        },
+        {
+          "item_id": "review_98648df4c5e4da7e",
+          "category": "STRUCTURE",
+          "object_type": "THREE_PUSH_DOWN",
+          "statement_cn": "D1 MAJOR THREE_PUSH_DOWN，生命周期 CONFIRMED，方向 BULL，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.87
+        },
+        {
+          "item_id": "review_37636b9f6a5d4bd7",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "D1 SUPPORT 区域 28565.2–28774.3，状态 TESTING，触碰 4 次",
+          "confidence": 0.9101
+        },
+        {
+          "item_id": "review_92dba3647ba930a3",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "D1 SUPPORT 区域 28858.6–29107.9，状态 ACTIVE，触碰 2 次",
+          "confidence": 0.7336
+        },
+        {
+          "item_id": "review_900d8ba8c7121ea9",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "D1 RESISTANCE 区域 29677–30023.4，状态 ACTIVE，触碰 5 次",
+          "confidence": 0.9494
+        },
+        {
+          "item_id": "review_e9e7ae6f21d25fba",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "D1 RESISTANCE 区域 30309.9–31037.1，状态 ACTIVE，触碰 4 次",
+          "confidence": 0.908
+        },
+        {
+          "item_id": "review_1a2875ac4681cee7",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "D1 RESISTANCE 区域 26128.5–26319.1，状态 BROKEN_UP，触碰 3 次",
+          "confidence": 0.7812
+        },
+        {
+          "item_id": "review_195189da7adef445",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "D1 RESISTANCE 区域 25688.6–25962.9，状态 BROKEN_UP，触碰 6 次",
+          "confidence": 0.9577
+        },
+        {
+          "item_id": "review_e6ae8b1562b9ce7c",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "D1 MICRO BEAR 通道，状态 ACTIVE，通道位置 0.42",
+          "confidence": 0.99
+        },
+        {
+          "item_id": "review_ac20d9febd6348ff",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "D1 MINOR BEAR 通道，状态 ACTIVE，通道位置 0.42",
+          "confidence": 0.99
+        },
+        {
+          "item_id": "review_82b78f09a268cdc8",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "D1 INTERMEDIATE BEAR 通道，状态 ACTIVE，通道位置 0.27",
+          "confidence": 0.687546
+        },
+        {
+          "item_id": "review_640159f746f7ef58",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "D1 MINOR BEAR 通道，状态 ACTIVE，通道位置 0.27",
+          "confidence": 0.686007
+        },
+        {
+          "item_id": "review_1cd37c729a7f6ddb",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "D1 MICRO BULL 测量移动目标 31405.9，状态 ACTIVE",
+          "confidence": 0.99
+        },
+        {
+          "item_id": "review_b10865081995eaef",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "D1 INTERMEDIATE BULL 测量移动目标 36206.4，状态 ACTIVE",
+          "confidence": 0.974993
+        },
+        {
+          "item_id": "review_5d1307968951f3b4",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "D1 MAJOR BULL 测量移动目标 36206.4，状态 ACTIVE",
+          "confidence": 0.974993
+        },
+        {
+          "item_id": "review_2bb31f7031d51706",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "D1 MICRO BEAR 测量移动目标 27793.9，状态 ACTIVE",
+          "confidence": 0.95058
+        },
+        {
+          "item_id": "review_8e8f29a909750e70",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "D1 MINOR BULL 测量移动目标 35526.8，状态 ACTIVE",
+          "confidence": 0.926031
+        },
+        {
+          "item_id": "review_97a0181cf14c21e0",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "D1 MINOR BULL 测量移动目标 31364.2，状态 ACTIVE",
+          "confidence": 0.823823
+        },
+        {
+          "item_id": "review_f261dcee368bf77e",
+          "category": "CROSS_TIMEFRAME",
+          "object_type": "CHILD_INSIDE_PARENT_BALANCE",
+          "statement_cn": "W1→D1：CHILD_INSIDE_PARENT_BALANCE；背景 CONTEXT_COUNTERTREND；当前腿 LEG_AGAINST_PARENT_CONTEXT",
+          "confidence": 0.639601
+        },
+        {
+          "item_id": "review_5b8357989018f178",
+          "category": "CROSS_TIMEFRAME",
+          "object_type": "CHILD_INSIDE_PARENT_BALANCE",
+          "statement_cn": "D1→H4：CHILD_INSIDE_PARENT_BALANCE；背景 CONTEXT_ALIGNED；当前腿 LEG_WITH_PARENT_CONTEXT",
+          "confidence": 0.711105
+        }
+      ]
+    },
+    {
+      "case_id": "nas100_h4_9ad2a93c45",
+      "case_fingerprint": "22c7cb1ed6769c0b9849879efd1d63647c8c17fa936c12e2b906d0955a56c7db",
+      "symbol": "NAS100",
+      "timeframe": "H4",
+      "title": "NAS100 · H4 市场理解审核",
+      "data_end_utc": "2026-07-17T17:55:00+00:00",
+      "bar_open_time": "2026-07-17T12:00:00+00:00",
+      "bar_status": "COMPLETE",
+      "image_url": "./assets/cases/nas100_h4_9ad2a93c45.png",
+      "image_sha256": "fd8d879904539eaea91a4a0753dd241ef5e9c417a8fc62ca8dc4fa4e5ea7da96",
+      "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
+      "summary": {
+        "regime": "TREND_DOWN",
+        "context_direction": "BEAR",
+        "leg_direction": "BEAR",
+        "phase": "EARLY",
+        "location": "MIDDLE",
+        "confidence": 0.741653
+      },
+      "items": [
+        {
+          "item_id": "review_1f53e84bda23c2d9",
+          "category": "MARKET_STATE",
+          "object_type": "REGIME",
+          "statement_cn": "H4 市场状态：TREND_DOWN",
+          "confidence": 0.741653
+        },
+        {
+          "item_id": "review_4797b53e931a7017",
+          "category": "MARKET_STATE",
+          "object_type": "CONTEXT_DIRECTION",
+          "statement_cn": "H4 背景方向：BEAR",
+          "confidence": 0.741653
+        },
+        {
+          "item_id": "review_5e2bfcc45a42eb59",
+          "category": "MARKET_STATE",
+          "object_type": "LEG_DIRECTION",
+          "statement_cn": "H4 当前腿方向：BEAR",
+          "confidence": 0.741653
+        },
+        {
+          "item_id": "review_bc3348786dd51348",
+          "category": "MARKET_STATE",
+          "object_type": "PHASE",
+          "statement_cn": "H4 市场阶段：EARLY",
+          "confidence": 0.741653
+        },
+        {
+          "item_id": "review_d05c4b19a516a584",
+          "category": "MARKET_STATE",
+          "object_type": "LOCATION",
+          "statement_cn": "H4 所处位置：MIDDLE",
+          "confidence": 0.741653
+        },
+        {
+          "item_id": "review_9bdaa0a2fab1ed31",
+          "category": "MARKET_STATE",
+          "object_type": "LEG",
+          "statement_cn": "H4 当前运动性质：IMPULSE",
+          "confidence": 0.741653
+        },
+        {
+          "item_id": "review_80c52aed17fef8a1",
+          "category": "STRUCTURE",
+          "object_type": "BEAR_FLAG",
+          "statement_cn": "H4 MICRO BEAR_FLAG，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.769587
+        },
+        {
+          "item_id": "review_37cb9072ebdc30ec",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "H4 MICRO DOUBLE_TOP，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.99
+        },
+        {
+          "item_id": "review_d366ffe9564ce8c9",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "H4 MINOR DOUBLE_TOP，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.968071
+        },
+        {
+          "item_id": "review_6249c6600b569808",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "H4 INTERMEDIATE DOUBLE_TOP，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.930776
+        },
+        {
+          "item_id": "review_e5eeb4abae9db9fe",
+          "category": "STRUCTURE",
+          "object_type": "THREE_PUSH_UP",
+          "statement_cn": "H4 MICRO THREE_PUSH_UP，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.842964
+        },
+        {
+          "item_id": "review_9f9d1b27ecaa1586",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "H4 MINOR DOUBLE_TOP，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.99
+        },
+        {
+          "item_id": "review_437a00429ee0d17c",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "H4 INTERMEDIATE DOUBLE_TOP，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.958057
+        },
+        {
+          "item_id": "review_6b562c2c72107700",
+          "category": "STRUCTURE",
+          "object_type": "BEAR_FLAG",
+          "statement_cn": "H4 INTERMEDIATE BEAR_FLAG，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.875918
+        },
+        {
+          "item_id": "review_b5cded921d67feef",
+          "category": "STRUCTURE",
+          "object_type": "BREAKOUT_PULLBACK_SHORT",
+          "statement_cn": "H4 INTERMEDIATE BREAKOUT_PULLBACK_SHORT，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.8933
+        },
+        {
+          "item_id": "review_0cf79202e06f9a0f",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "H4 MAJOR DOUBLE_TOP，生命周期 TOPOLOGY_COMPLETE，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.797082
+        },
+        {
+          "item_id": "review_627dd69c2d7bed82",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "H4 SUPPORT 区域 28552.1–28770.7，状态 TESTING，触碰 5 次",
+          "confidence": 0.9892
+        },
+        {
+          "item_id": "review_79a87ce42697391b",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "H4 SUPPORT 区域 28844.8–29129.6，状态 BROKEN_DOWN，触碰 11 次",
+          "confidence": 0.99
+        },
+        {
+          "item_id": "review_86b8cee44b92a232",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "H4 SUPPORT 区域 28150.6–28485.4，状态 ACTIVE，触碰 3 次",
+          "confidence": 0.7857
+        },
+        {
+          "item_id": "review_7d366ee09cf44bfa",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "H4 SUPPORT 区域 29206–29538，状态 BROKEN_DOWN，触碰 7 次",
+          "confidence": 0.8925
+        },
+        {
+          "item_id": "review_71592d7bb58dbc6c",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "H4 RESISTANCE 区域 29207.9–29536.6，状态 FAILED_BREAKOUT_DOWN，触碰 6 次",
+          "confidence": 0.9778
+        },
+        {
+          "item_id": "review_720b90ff56db6aa7",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "H4 SUPPORT 区域 29605.9–29805.5，状态 RETESTED_AS_RESISTANCE，触碰 4 次",
+          "confidence": 0.8933
+        },
+        {
+          "item_id": "review_fdf867476d872618",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H4 INTERMEDIATE BEAR 通道，状态 ACTIVE，通道位置 0.43",
+          "confidence": 0.962189
+        },
+        {
+          "item_id": "review_31f6ddb01f6fb997",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H4 MAJOR BEAR 通道，状态 ACTIVE，通道位置 0.43",
+          "confidence": 0.942847
+        },
+        {
+          "item_id": "review_9ea357294873ddfa",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H4 MINOR BEAR 通道，状态 TESTING，通道位置 0.05",
+          "confidence": 0.735123
+        },
+        {
+          "item_id": "review_18daa1556441d924",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H4 INTERMEDIATE BEAR 通道，状态 TESTING，通道位置 0.05",
+          "confidence": 0.725078
+        },
+        {
+          "item_id": "review_aef4bd431512d305",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H4 MICRO BEAR 通道，状态 TESTING，通道位置 0.03",
+          "confidence": 0.675
+        },
+        {
+          "item_id": "review_92be5324cfbd50be",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H4 MAJOR BEAR 通道，状态 ACTIVE，通道位置 0.29",
+          "confidence": 0.666321
+        },
+        {
+          "item_id": "review_955d2b886773cdc2",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H4 INTERMEDIATE BEAR 测量移动目标 27988.4，状态 ACTIVE",
+          "confidence": 0.967181
+        },
+        {
+          "item_id": "review_7756b1cf2b5b8b4f",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "H4 INTERMEDIATE BULL 测量移动目标 31161.6，状态 ACTIVE",
+          "confidence": 0.958094
+        },
+        {
+          "item_id": "review_657e42e72db1edd3",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H4 MICRO BEAR 测量移动目标 28499.9，状态 ACTIVE",
+          "confidence": 0.946062
+        },
+        {
+          "item_id": "review_adc84705db1b25de",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H4 MICRO BEAR 测量移动目标 28293.5，状态 ACTIVE",
+          "confidence": 0.930663
+        },
+        {
+          "item_id": "review_74dee20bb03d9898",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H4 MINOR BEAR 测量移动目标 28293.5，状态 ACTIVE",
+          "confidence": 0.930663
+        },
+        {
+          "item_id": "review_4801bdc09d6238b5",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H4 MINOR BEAR 测量移动目标 28588.9，状态 TESTING_TARGET",
+          "confidence": 0.922599
+        },
+        {
+          "item_id": "review_5b8357989018f178",
+          "category": "CROSS_TIMEFRAME",
+          "object_type": "CHILD_INSIDE_PARENT_BALANCE",
+          "statement_cn": "D1→H4：CHILD_INSIDE_PARENT_BALANCE；背景 CONTEXT_ALIGNED；当前腿 LEG_WITH_PARENT_CONTEXT",
+          "confidence": 0.711105
+        },
+        {
+          "item_id": "review_7435684456f524e5",
+          "category": "CROSS_TIMEFRAME",
+          "object_type": "CHILD_CONSOLIDATION",
+          "statement_cn": "H4→H1：CHILD_CONSOLIDATION；背景 CONTEXT_ALIGNED；当前腿 LEG_AGAINST_PARENT_CONTEXT",
+          "confidence": 0.667077
+        }
+      ]
+    },
+    {
+      "case_id": "nas100_h1_9060644848",
+      "case_fingerprint": "1c405c8e44d50837720690861d983c0194b7341212b1470b449231cd8204d716",
+      "symbol": "NAS100",
+      "timeframe": "H1",
+      "title": "NAS100 · H1 市场理解审核",
+      "data_end_utc": "2026-07-17T17:55:00+00:00",
+      "bar_open_time": "2026-07-17T17:00:00+00:00",
+      "bar_status": "COMPLETE",
+      "image_url": "./assets/cases/nas100_h1_9060644848.png",
+      "image_sha256": "85dbdcc4ff8a70f66a3d1170a486cc5765b8839c2623f918b76480aa5b0fa132",
+      "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
+      "summary": {
+        "regime": "TRANSITION",
+        "context_direction": "BEAR",
+        "leg_direction": "BULL",
+        "phase": "UNRESOLVED",
+        "location": "MIDDLE",
+        "confidence": 0.6
+      },
+      "items": [
+        {
+          "item_id": "review_953a9cccdbf11afc",
+          "category": "MARKET_STATE",
+          "object_type": "REGIME",
+          "statement_cn": "H1 市场状态：TRANSITION",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_8c6127b5fb07c848",
+          "category": "MARKET_STATE",
+          "object_type": "CONTEXT_DIRECTION",
+          "statement_cn": "H1 背景方向：BEAR",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_0f489af13622fb73",
+          "category": "MARKET_STATE",
+          "object_type": "LEG_DIRECTION",
+          "statement_cn": "H1 当前腿方向：BULL",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_9e2166439d01baf1",
+          "category": "MARKET_STATE",
+          "object_type": "PHASE",
+          "statement_cn": "H1 市场阶段：UNRESOLVED",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_ce3b13511eeb6dce",
+          "category": "MARKET_STATE",
+          "object_type": "LOCATION",
+          "statement_cn": "H1 所处位置：MIDDLE",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_bbf52dbd940f7a2c",
+          "category": "MARKET_STATE",
+          "object_type": "LEG",
+          "statement_cn": "H1 当前运动性质：ROTATION_UP",
+          "confidence": 0.6
+        },
+        {
+          "item_id": "review_ead3087cdc4a962d",
+          "category": "STRUCTURE",
+          "object_type": "THREE_PUSH_DOWN",
+          "statement_cn": "H1 MICRO THREE_PUSH_DOWN，生命周期 CONFIRMED，方向 BULL，语义角色 COUNTERTREND_REVERSAL_ATTEMPT",
+          "confidence": 0.99
+        },
+        {
+          "item_id": "review_f3e3585d4ce6b26d",
+          "category": "STRUCTURE",
+          "object_type": "BREAKOUT_PULLBACK_SHORT",
+          "statement_cn": "H1 MAJOR BREAKOUT_PULLBACK_SHORT，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.99
+        },
+        {
+          "item_id": "review_78f4ad10ba4bafcc",
+          "category": "STRUCTURE",
+          "object_type": "BEAR_FLAG",
+          "statement_cn": "H1 INTERMEDIATE BEAR_FLAG，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.888353
+        },
+        {
+          "item_id": "review_6c3c8dd1cf5fecbf",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "H1 MAJOR DOUBLE_TOP，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.975948
+        },
+        {
+          "item_id": "review_bbb7d1fc24360901",
+          "category": "STRUCTURE",
+          "object_type": "BREAKOUT_PULLBACK_SHORT",
+          "statement_cn": "H1 MAJOR BREAKOUT_PULLBACK_SHORT，生命周期 CONFIRMED，方向 BEAR，语义角色 WITH_CONTEXT_CONTINUATION",
+          "confidence": 0.9511
+        },
+        {
+          "item_id": "review_da4ee97441be702b",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "H1 RESISTANCE 区域 28654.2–28756.4，状态 FAILED_BREAKOUT_DOWN，触碰 5 次",
+          "confidence": 0.85
+        },
+        {
+          "item_id": "review_b77633aa78e68bdd",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "H1 SUPPORT 区域 28648.9–28694.1，状态 FAILED_BREAKOUT_UP，触碰 3 次",
+          "confidence": 0.7743
+        },
+        {
+          "item_id": "review_3ead54ea373a8b2c",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "H1 RESISTANCE 区域 28607.5–28641.5，状态 BROKEN_UP，触碰 2 次",
+          "confidence": 0.6354
+        },
+        {
+          "item_id": "review_1f76f4876f5a9de5",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "H1 SUPPORT 区域 28718.8–28826.6，状态 RETESTED_AS_RESISTANCE，触碰 8 次",
+          "confidence": 0.9511
+        },
+        {
+          "item_id": "review_51e8c4836b1848e4",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "H1 SUPPORT 区域 28566.3–28625.3，状态 FAILED_BREAKOUT_UP，触碰 3 次",
+          "confidence": 0.675
+        },
+        {
+          "item_id": "review_e65aa752c086cccd",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "H1 RESISTANCE 区域 28776.4–28861.7，状态 FAILED_BREAKOUT_DOWN，触碰 2 次",
+          "confidence": 0.5875
+        },
+        {
+          "item_id": "review_57461e4e5de5de2b",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H1 MINOR BEAR 通道，状态 TESTING，通道位置 0.75",
+          "confidence": 0.929677
+        },
+        {
+          "item_id": "review_235852b998bdba3f",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H1 MICRO BEAR 通道，状态 OVERSHOOT_DOWN，通道位置 -0.26",
+          "confidence": 0.790816
+        },
+        {
+          "item_id": "review_2f61e643e4c8543d",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H1 INTERMEDIATE BEAR 通道，状态 TESTING，通道位置 0.17",
+          "confidence": 0.789286
+        },
+        {
+          "item_id": "review_e23d814700aa84a2",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "H1 MAJOR BEAR 通道，状态 TESTING，通道位置 0.02",
+          "confidence": 0.764667
+        },
+        {
+          "item_id": "review_324f76a98e291279",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H1 MICRO BEAR 测量移动目标 27389.3，状态 ACTIVE",
+          "confidence": 0.944897
+        },
+        {
+          "item_id": "review_0a284641e4194ddb",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H1 MAJOR BEAR 测量移动目标 27610，状态 ACTIVE",
+          "confidence": 0.916531
+        },
+        {
+          "item_id": "review_0f8a4dc8712cd47a",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H1 INTERMEDIATE BEAR 测量移动目标 28348，状态 ACTIVE",
+          "confidence": 0.910538
+        },
+        {
+          "item_id": "review_f67f63d479009b58",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H1 INTERMEDIATE BEAR 测量移动目标 28502.7，状态 ACTIVE",
+          "confidence": 0.873229
+        },
+        {
+          "item_id": "review_cf69572857991cb4",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H1 MAJOR BEAR 测量移动目标 28588.9，状态 TESTING_TARGET",
+          "confidence": 0.850504
+        },
+        {
+          "item_id": "review_e24c39a9ea1b1b29",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "H1 MAJOR BEAR 测量移动目标 28293.5，状态 ACTIVE",
+          "confidence": 0.84654
+        },
+        {
+          "item_id": "review_7435684456f524e5",
+          "category": "CROSS_TIMEFRAME",
+          "object_type": "CHILD_CONSOLIDATION",
+          "statement_cn": "H4→H1：CHILD_CONSOLIDATION；背景 CONTEXT_ALIGNED；当前腿 LEG_AGAINST_PARENT_CONTEXT",
+          "confidence": 0.667077
+        },
+        {
+          "item_id": "review_67bb38e5657db4f8",
+          "category": "CROSS_TIMEFRAME",
+          "object_type": "CHILD_INSIDE_PARENT_BALANCE",
+          "statement_cn": "H1→M5：CHILD_INSIDE_PARENT_BALANCE；背景 CONTEXT_COUNTERTREND；当前腿 LEG_WITH_PARENT_CONTEXT",
+          "confidence": 0.55845
+        }
+      ]
+    },
+    {
+      "case_id": "nas100_m5_3557d3d9eb",
+      "case_fingerprint": "d75b910090a754f47d1306b846234764eea100e96b74a80c44ad289010c45538",
+      "symbol": "NAS100",
+      "timeframe": "M5",
+      "title": "NAS100 · M5 市场理解审核",
+      "data_end_utc": "2026-07-17T17:55:00+00:00",
+      "bar_open_time": "2026-07-17T17:55:00+00:00",
+      "bar_status": "COMPLETE",
+      "image_url": "./assets/cases/nas100_m5_3557d3d9eb.png",
+      "image_sha256": "3e72d16ef6cfecd4e88844110418e5c4cf745e3bbf63406485560ea2f0a31f85",
+      "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
+      "summary": {
+        "regime": "RANGE",
+        "context_direction": "BULL",
+        "leg_direction": "BEAR",
+        "phase": "EARLY",
+        "location": "LOWER_EDGE",
+        "confidence": 0.519777
+      },
+      "items": [
+        {
+          "item_id": "review_da8050841d20b07c",
+          "category": "MARKET_STATE",
+          "object_type": "REGIME",
+          "statement_cn": "M5 市场状态：RANGE",
+          "confidence": 0.519777
+        },
+        {
+          "item_id": "review_93c5876765ce1794",
+          "category": "MARKET_STATE",
+          "object_type": "CONTEXT_DIRECTION",
+          "statement_cn": "M5 背景方向：BULL",
+          "confidence": 0.519777
+        },
+        {
+          "item_id": "review_a841a851d181d5fc",
+          "category": "MARKET_STATE",
+          "object_type": "LEG_DIRECTION",
+          "statement_cn": "M5 当前腿方向：BEAR",
+          "confidence": 0.519777
+        },
+        {
+          "item_id": "review_dd22f09503ce5fb4",
+          "category": "MARKET_STATE",
+          "object_type": "PHASE",
+          "statement_cn": "M5 市场阶段：EARLY",
+          "confidence": 0.519777
+        },
+        {
+          "item_id": "review_151bb34511361c52",
+          "category": "MARKET_STATE",
+          "object_type": "LOCATION",
+          "statement_cn": "M5 所处位置：LOWER_EDGE",
+          "confidence": 0.519777
+        },
+        {
+          "item_id": "review_ef577543c9021767",
+          "category": "MARKET_STATE",
+          "object_type": "LEG",
+          "statement_cn": "M5 当前运动性质：ROTATION_DOWN",
+          "confidence": 0.519777
+        },
+        {
+          "item_id": "review_6ee71ed5a02d09b5",
+          "category": "STRUCTURE",
+          "object_type": "DOUBLE_TOP",
+          "statement_cn": "M5 MICRO DOUBLE_TOP，生命周期 CONFIRMED，方向 BEAR，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.826604
+        },
+        {
+          "item_id": "review_821ae8706aedf4ac",
+          "category": "STRUCTURE",
+          "object_type": "THREE_PUSH_UP",
+          "statement_cn": "M5 MINOR THREE_PUSH_UP，生命周期 TOPOLOGY_COMPLETE，方向 BEAR，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.76
+        },
+        {
+          "item_id": "review_fdf8400e7274d030",
+          "category": "STRUCTURE",
+          "object_type": "THREE_PUSH_UP",
+          "statement_cn": "M5 INTERMEDIATE THREE_PUSH_UP，生命周期 TOPOLOGY_COMPLETE，方向 BEAR，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.76
+        },
+        {
+          "item_id": "review_c32e4a61fde867f6",
+          "category": "STRUCTURE",
+          "object_type": "BREAKOUT_PULLBACK_LONG",
+          "statement_cn": "M5 MINOR BREAKOUT_PULLBACK_LONG，生命周期 CONFIRMED，方向 BULL，语义角色 RANGE_INTERNAL_STRUCTURE",
+          "confidence": 0.769
+        },
+        {
+          "item_id": "review_ca33be7597862986",
+          "category": "STRUCTURE",
+          "object_type": "BULL_FLAG",
+          "statement_cn": "M5 MICRO BULL_FLAG，生命周期 CONFIRMED，方向 BULL，语义角色 RANGE_INTERNAL_STRUCTURE",
+          "confidence": 0.958211
+        },
+        {
+          "item_id": "review_6c4bc63086595266",
+          "category": "STRUCTURE",
+          "object_type": "BULL_FLAG",
+          "statement_cn": "M5 MINOR BULL_FLAG，生命周期 CONFIRMED，方向 BULL，语义角色 RANGE_INTERNAL_STRUCTURE",
+          "confidence": 0.927524
+        },
+        {
+          "item_id": "review_cd6efeabf0c4c57e",
+          "category": "STRUCTURE",
+          "object_type": "BULL_FLAG",
+          "statement_cn": "M5 INTERMEDIATE BULL_FLAG，生命周期 CONFIRMED，方向 BULL，语义角色 RANGE_INTERNAL_STRUCTURE",
+          "confidence": 0.927524
+        },
+        {
+          "item_id": "review_d273801780941890",
+          "category": "STRUCTURE",
+          "object_type": "BREAKOUT_PULLBACK_LONG",
+          "statement_cn": "M5 INTERMEDIATE BREAKOUT_PULLBACK_LONG，生命周期 CONFIRMED，方向 BULL，语义角色 RANGE_INTERNAL_STRUCTURE",
+          "confidence": 0.7258
+        },
+        {
+          "item_id": "review_1a5ecb2a8bd66a69",
+          "category": "STRUCTURE",
+          "object_type": "BEAR_FLAG",
+          "statement_cn": "M5 MAJOR BEAR_FLAG，生命周期 CONFIRMED，方向 BEAR，语义角色 RANGE_EDGE_REVERSAL",
+          "confidence": 0.820891
+        },
+        {
+          "item_id": "review_70ce5c094c24be05",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "M5 SUPPORT 区域 28699.7–28707.4，状态 FAILED_BREAKOUT_UP，触碰 2 次",
+          "confidence": 0.6835
+        },
+        {
+          "item_id": "review_fbec3f113aa928dc",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "M5 RESISTANCE 区域 28692.1–28742.2，状态 RETESTED_AS_SUPPORT，触碰 2 次",
+          "confidence": 0.7258
+        },
+        {
+          "item_id": "review_63bc49957d3349f6",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "M5 SUPPORT 区域 28643.5–28664.6，状态 ACTIVE，触碰 2 次",
+          "confidence": 0.6321
+        },
+        {
+          "item_id": "review_644d20fdc76fd6e7",
+          "category": "LEVEL_ZONE",
+          "object_type": "SUPPORT",
+          "statement_cn": "M5 SUPPORT 区域 28744.5–28764.9，状态 BROKEN_DOWN，触碰 2 次",
+          "confidence": 0.6839
+        },
+        {
+          "item_id": "review_a5c6d25295b1a89b",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "M5 RESISTANCE 区域 28720.7–28790.1，状态 RETESTED_AS_SUPPORT，触碰 3 次",
+          "confidence": 0.769
+        },
+        {
+          "item_id": "review_54c37782dca4e96d",
+          "category": "LEVEL_ZONE",
+          "object_type": "RESISTANCE",
+          "statement_cn": "M5 RESISTANCE 区域 28606.2–28640.1，状态 FAILED_BREAKOUT_DOWN，触碰 4 次",
+          "confidence": 0.8876
+        },
+        {
+          "item_id": "review_e52069932a9eec15",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "M5 MINOR BEAR 通道，状态 OVERSHOOT_DOWN，通道位置 -0.59",
+          "confidence": 0.693719
+        },
+        {
+          "item_id": "review_c8bffad15d3af514",
+          "category": "CHANNEL",
+          "object_type": "BULL_CHANNEL",
+          "statement_cn": "M5 MICRO BULL 通道，状态 OVERSHOOT_DOWN，通道位置 -0.29",
+          "confidence": 0.693188
+        },
+        {
+          "item_id": "review_472320a0c151e428",
+          "category": "CHANNEL",
+          "object_type": "BEAR_CHANNEL",
+          "statement_cn": "M5 MICRO BEAR 通道，状态 OVERSHOOT_DOWN，通道位置 -0.47",
+          "confidence": 0.613696
+        },
+        {
+          "item_id": "review_72fbadd85d0ea67e",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "M5 MICRO BULL 测量移动目标 28928.6，状态 ACTIVE",
+          "confidence": 0.99
+        },
+        {
+          "item_id": "review_c0f1d5b250ec7e00",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "M5 MICRO BULL 测量移动目标 28964.7，状态 ACTIVE",
+          "confidence": 0.976221
+        },
+        {
+          "item_id": "review_a34dfaf43b327494",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "M5 MINOR BULL 测量移动目标 28960.7，状态 ACTIVE",
+          "confidence": 0.973483
+        },
+        {
+          "item_id": "review_c0def6c9e2026583",
+          "category": "MEASURED_MOVE",
+          "object_type": "BULL_MEASURED_MOVE",
+          "statement_cn": "M5 INTERMEDIATE BULL 测量移动目标 28960.7，状态 ACTIVE",
+          "confidence": 0.973483
+        },
+        {
+          "item_id": "review_a627eda265a9fadf",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "M5 INTERMEDIATE BEAR 测量移动目标 28323，状态 ACTIVE",
+          "confidence": 0.965999
+        },
+        {
+          "item_id": "review_e463624a533313dd",
+          "category": "MEASURED_MOVE",
+          "object_type": "BEAR_MEASURED_MOVE",
+          "statement_cn": "M5 MINOR BEAR 测量移动目标 28390.2，状态 ACTIVE",
+          "confidence": 0.959826
+        },
+        {
+          "item_id": "review_67bb38e5657db4f8",
+          "category": "CROSS_TIMEFRAME",
+          "object_type": "CHILD_INSIDE_PARENT_BALANCE",
+          "statement_cn": "H1→M5：CHILD_INSIDE_PARENT_BALANCE；背景 CONTEXT_COUNTERTREND；当前腿 LEG_WITH_PARENT_CONTEXT",
+          "confidence": 0.55845
+        }
+      ]
+    }
+  ]
+}

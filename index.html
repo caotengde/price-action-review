@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light" />
+    <meta name="description" content="公开的多周期价格行为语义审核与数据集采集网站" />
+    <title>价格行为 · 公共语义审核台</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand-block">
+          <div class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></div>
+          <div>
+            <p class="eyebrow">PUBLIC PRICE ACTION DATASET</p>
+            <h1>公共语义审核台</h1>
+          </div>
+        </div>
+        <div class="top-actions">
+          <div class="global-progress" aria-label="本地审核进度">
+            <span id="globalProgressText">载入中</span>
+            <div class="progress-track"><i id="globalProgressBar"></i></div>
+          </div>
+          <a id="datasetLink" class="ghost-button" href="https://github.com/caotengde/price-action-review" target="_blank" rel="noreferrer">查看公开数据集</a>
+          <button id="submitReviewButton" class="primary-button" disabled>提交当前图审核</button>
+        </div>
+      </header>
+
+      <div class="public-notice">
+        <strong>开放研究：</strong>系统把市场理解拆成原子命题。你的审核先保存在浏览器，提交时将打开一个预填的 GitHub Issue；确认发布后，GitHub Action 会验证并纳入公开数据集。
+      </div>
+
+      <main class="workspace public-workspace">
+        <aside class="case-sidebar">
+          <div class="sidebar-heading">
+            <div><span class="section-kicker">REVIEW QUEUE</span><h2>审核队列</h2></div>
+            <span id="caseCount" class="count-pill">0</span>
+          </div>
+          <div id="caseList" class="case-list" aria-live="polite"></div>
+          <div class="reviewer-card">
+            <label for="reviewerName">审核者名称</label>
+            <input id="reviewerName" maxlength="80" placeholder="昵称或 GitHub 用户名（可选）" />
+            <label for="experienceLevel">价格行为经验</label>
+            <select id="experienceLevel">
+              <option value="UNSPECIFIED">不填写</option>
+              <option value="LEARNING">学习中</option>
+              <option value="INTERMEDIATE">有一定经验</option>
+              <option value="ADVANCED">熟练交易者</option>
+              <option value="EXPERT">专业研究者 / 交易员</option>
+            </select>
+          </div>
+          <div class="sidebar-note"><span class="status-dot"></span><p>公开标签只用于市场理解规则校准，不构成投资建议，也不会触发订单。</p></div>
+        </aside>
+
+        <section class="chart-workbench">
+          <div class="case-heading">
+            <div>
+              <div class="case-meta-line">
+                <span id="symbolBadge" class="symbol-badge">—</span>
+                <span id="timeframeBadge" class="timeframe-badge">—</span>
+                <span id="barStatus" class="quiet-label">—</span>
+              </div>
+              <h2 id="caseTitle">选择一个审核案例</h2>
+              <p id="caseTimestamp" class="muted">—</p>
+            </div>
+            <div class="submission-state">
+              <span id="saveState">自动保存在本浏览器</span>
+              <button id="clearCaseButton" class="ghost-button" disabled>清空本图标签</button>
+            </div>
+          </div>
+
+          <div id="stateStrip" class="state-strip"></div>
+
+          <div class="chart-card">
+            <div class="chart-toolbar">
+              <div><span class="live-indicator"></span><strong>系统图解</strong><span class="muted">点击图表定位遗漏理解</span></div>
+              <div class="chart-help">图表与判断均绑定不可变案例指纹</div>
+            </div>
+            <div id="chartStage" class="chart-stage">
+              <div id="chartLoading" class="chart-loading">正在读取图表…</div>
+              <img id="caseImage" alt="价格行为结构诊断图" />
+              <span id="chartMarker" class="chart-marker" hidden></span>
+            </div>
+          </div>
+
+          <div class="missing-card">
+            <div class="missing-copy">
+              <span class="section-kicker">FALSE NEGATIVE</span>
+              <h3>系统漏掉了什么？</h3>
+              <p>先点击图中位置，再写下应该出现的市场理解。</p>
+            </div>
+            <form id="missingForm" class="missing-form">
+              <select id="missingCategory" aria-label="遗漏类型">
+                <option value="MISSED_STRUCTURE">遗漏形态</option>
+                <option value="MISSED_LEVEL">遗漏水平</option>
+                <option value="MISSED_CHANNEL">遗漏通道</option>
+                <option value="MISSED_CONTEXT">遗漏上下文</option>
+                <option value="MISSED_CYCLE">遗漏周期关系</option>
+              </select>
+              <input id="missingStatement" maxlength="1000" required placeholder="例如：这里是大周期空头背景中的第二腿反弹" />
+              <input id="missingComment" maxlength="2000" placeholder="补充原因（可选）" />
+              <button type="submit" class="dark-button">加入本次审核</button>
+            </form>
+            <div id="customItems" class="custom-items"></div>
+          </div>
+        </section>
+
+        <aside class="review-panel">
+          <div class="review-header">
+            <div><span class="section-kicker">SEMANTIC CLAIMS</span><h2>逐条判断</h2></div>
+            <span id="caseProgress" class="case-progress">0 / 0</span>
+          </div>
+          <div class="filter-row">
+            <select id="categoryFilter" aria-label="按类别筛选"><option value="ALL">全部类别</option></select>
+            <select id="statusFilter" aria-label="按审核状态筛选">
+              <option value="ALL">全部状态</option><option value="UNREVIEWED">待审核</option>
+              <option value="CORRECT">正确</option><option value="INCORRECT">错误</option><option value="UNCERTAIN">不确定</option>
+            </select>
+          </div>
+          <div class="keyboard-hint">快捷键 <kbd>1</kbd> 正确 <kbd>2</kbd> 错误 <kbd>3</kbd> 不确定 <kbd>J</kbd>/<kbd>K</kbd> 切换</div>
+          <div id="reviewItems" class="review-items" aria-live="polite"></div>
+        </aside>
+      </main>
+    </div>
+
+    <dialog id="correctionDialog" class="correction-dialog">
+      <form id="correctionForm" method="dialog">
+        <div class="dialog-heading">
+          <div><span class="section-kicker">CORRECTION</span><h2>告诉系统正确理解</h2></div>
+          <button id="closeDialog" type="button" class="icon-button" aria-label="关闭">×</button>
+        </div>
+        <blockquote id="systemStatement"></blockquote>
+        <label><span>你的正确理解 <b>*</b></span><textarea id="correctedValue" maxlength="3000" required rows="3" placeholder="用你的价格行为语言重述"></textarea></label>
+        <fieldset><legend>错误原因（可多选）</legend><div id="errorTags" class="tag-grid"></div></fieldset>
+        <label><span>为什么？</span><textarea id="correctionComment" maxlength="3000" rows="2" placeholder="说明大周期、位置、当前腿或结构锚点"></textarea></label>
+        <div class="dialog-actions"><button id="cancelCorrection" type="button" class="ghost-button">取消</button><button type="submit" class="danger-button">保存为错误样本</button></div>
+      </form>
+    </dialog>
+
+    <dialog id="submitDialog" class="correction-dialog submit-dialog">
+      <div class="submit-content">
+        <div class="dialog-heading">
+          <div><span class="section-kicker">PUBLIC SUBMISSION</span><h2>提交到公开数据集</h2></div>
+          <button id="closeSubmitDialog" type="button" class="icon-button" aria-label="关闭">×</button>
+        </div>
+        <div id="submitSummary" class="submit-summary"></div>
+        <div class="privacy-box">提交会在公共 GitHub 仓库创建 Issue。你的 GitHub 用户名、审核内容和时间将公开可见，并以 CC0-1.0 贡献给公共数据集；不会上传浏览器中的其他案例或任何交易账户信息。</div>
+        <div class="dialog-actions"><button id="cancelSubmit" type="button" class="ghost-button">返回检查</button><button id="confirmSubmit" type="button" class="primary-button">前往 GitHub 确认发布</button></div>
+      </div>
+    </dialog>
+
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+    <script src="./app.js" defer></script>
+  </body>
+</html>

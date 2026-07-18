@@ -1,0 +1,38 @@
+name: Collect semantic review
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: semantic-review-dataset
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    if: contains(github.event.issue.labels.*.name, 'semantic-review')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate and collect submission
+        run: python scripts/collect_issue_submission.py
+      - name: Commit public dataset record
+        run: |
+          git config user.name "price-action-review-bot"
+          git config user.email "price-action-review-bot@users.noreply.github.com"
+          git add submissions data/reviews.jsonl
+          git commit -m "Collect semantic review from issue #${{ github.event.issue.number }} [skip ci]"
+          git push
+      - name: Confirm collection on issue
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh issue comment "${{ github.event.issue.number }}" --body "✅ Review validated and added to the public dataset. Thank you."
