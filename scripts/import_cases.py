@@ -55,6 +55,11 @@ def main() -> None:
                         "object_type": item["object_type"],
                         "statement_cn": item["statement_cn"],
                         "confidence": item["confidence"],
+                        **(
+                            {"self_audit": item["self_audit"]}
+                            if "self_audit" in item
+                            else {}
+                        ),
                     }
                     for item in case["items"]
                 ],
@@ -66,6 +71,11 @@ def main() -> None:
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "case_count": len(public_cases),
         "trading_enabled": False,
+        **(
+            {"self_audit": source["self_audit"]}
+            if "self_audit" in source
+            else {}
+        ),
         "cases": public_cases,
     }
     (target_data / "cases.json").write_text(
