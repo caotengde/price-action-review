@@ -13,6 +13,34 @@ const CATEGORY_NAMES = {
   MARKET_STATE: "市场状态", STRUCTURE: "结构形态", LEVEL_ZONE: "水平区域",
   CHANNEL: "趋势通道", MEASURED_MOVE: "测量移动", CROSS_TIMEFRAME: "周期关系",
 };
+const CODE_TRANSLATIONS = {
+  ACTIVE: "有效", BALANCED: "平衡震荡", BEAR: "空头", BEAR_CHANNEL: "空头通道",
+  BEAR_FLAG: "空头旗形", BEAR_MEASURED_MOVE: "空头测量移动", BREAKOUT_PULLBACK_LONG: "向上突破回测",
+  BREAKOUT_PULLBACK_SHORT: "向下突破回测", BROKEN_DOWN: "向下跌破", BROKEN_UP: "向上突破",
+  BULL: "多头", BULL_CHANNEL: "多头通道", BULL_FLAG: "多头旗形",
+  BULL_MEASURED_MOVE: "多头测量移动", CHILD_CONSOLIDATION: "子周期盘整",
+  CHILD_INSIDE_PARENT_BALANCE: "子周期位于父周期平衡区", COMPLETE: "已完成K线",
+  CONFIRMED: "已确认", CONTEXT_ALIGNED: "背景同向", CONTEXT_COUNTERTREND: "背景逆向",
+  CONTEXT_DIRECTION: "背景方向", COUNTERTREND_REVERSAL_ATTEMPT: "逆势反转尝试",
+  DEVELOPING: "形成中K线", DOUBLE_BOTTOM: "双底", DOUBLE_TOP: "双顶", EARLY: "早期",
+  ESTABLISHED: "已建立", FAILED_BREAKOUT_DOWN: "向下假突破", FAILED_BREAKOUT_UP: "向上假突破",
+  IMPULSE: "推动", INTERMEDIATE: "中级别", LEG: "当前运动性质",
+  LEG_AGAINST_PARENT_CONTEXT: "当前腿逆父周期背景", LEG_DIRECTION: "当前腿方向",
+  LEG_WITH_PARENT_CONTEXT: "当前腿顺父周期背景", LOCATION: "所处位置", LOWER_EDGE: "下沿",
+  MAJOR: "大级别", MICRO: "微观级别", MIDDLE: "中部", MINOR: "小级别",
+  OVERSHOOT_DOWN: "向下过冲", OVERSHOOT_UP: "向上过冲", PHASE: "市场阶段",
+  RANGE: "交易区间", RANGE_EDGE_REVERSAL: "区间边缘反转",
+  RANGE_INTERNAL_STRUCTURE: "区间内部结构", REGIME: "市场状态", RESISTANCE: "阻力",
+  RETESTED_AS_RESISTANCE: "回测为阻力", RETESTED_AS_SUPPORT: "回测为支撑",
+  ROTATION_DOWN: "向下轮转", ROTATION_UP: "向上轮转", SUPPORT: "支撑", TESTING: "正在测试",
+  TESTING_TARGET: "正在测试目标", THREE_PUSH_DOWN: "向下三推", THREE_PUSH_UP: "向上三推",
+  TOPOLOGY_COMPLETE: "形态结构完成", TRANSITION: "转换／未决", TREND_DOWN: "空头趋势",
+  TREND_UP: "多头趋势", UNRESOLVED: "尚未明确", WITH_CONTEXT_CONTINUATION: "顺背景延续",
+};
+const STATE_LABELS = {
+  regime: "市场状态", context_direction: "背景方向", leg_direction: "当前腿",
+  phase: "市场阶段", location: "所处位置", confidence: "置信度",
+};
 const ERROR_TAGS = [
   ["WRONG_MARKET_CYCLE", "市场周期错误"], ["WRONG_CONTEXT", "背景理解错误"],
   ["WRONG_DIRECTION", "方向错误"], ["WRONG_LOCATION", "位置错误"],
@@ -25,6 +53,36 @@ const $ = (selector) => document.querySelector(selector);
 function escapeHtml(value) {
   return String(value ?? "").replaceAll("&", "&amp;").replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;");
+}
+
+function translateCode(value) {
+  return CODE_TRANSLATIONS[value] || String(value ?? "");
+}
+
+function codeWithOriginal(value) {
+  const code = String(value ?? ""); const translated = translateCode(code);
+  if (!code || translated === code) return escapeHtml(code);
+  return `<span class="translated-code">${escapeHtml(translated)}<small>${escapeHtml(code)}</small></span>`;
+}
+
+function translateStatement(value) {
+  return String(value ?? "").replace(/\b[A-Z][A-Z0-9_]*\b/g, (code) => {
+    const translated = CODE_TRANSLATIONS[code];
+    return translated ? `${translated}（${code}）` : code;
+  });
+}
+
+function translateStatementHtml(value) {
+  const source = String(value ?? ""); let output = ""; let cursor = 0;
+  for (const match of source.matchAll(/\b[A-Z][A-Z0-9_]*\b/g)) {
+    output += escapeHtml(source.slice(cursor, match.index));
+    const code = match[0]; const translated = CODE_TRANSLATIONS[code];
+    output += translated
+      ? `${escapeHtml(translated)}<small class="inline-code">（${escapeHtml(code)}）</small>`
+      : escapeHtml(code);
+    cursor = match.index + code.length;
+  }
+  return output + escapeHtml(source.slice(cursor));
 }
 
 function showToast(message, isError = false) {
@@ -94,7 +152,7 @@ function renderCaseList() {
     const percent = counts.total ? Math.round(counts.reviewed / counts.total * 100) : 0;
     return `<button class="case-button ${item.case_id === state.currentCase?.case_id ? "active" : ""} ${percent === 100 ? "complete" : ""}" data-case-id="${escapeHtml(item.case_id)}">
       <div class="case-button-top"><span class="case-symbol">${escapeHtml(item.symbol)}</span><span class="case-tf">${escapeHtml(item.timeframe)}</span></div>
-      <p>${escapeHtml(item.summary.regime)} · ${escapeHtml(item.summary.location)}${counts.missing ? ` · 遗漏 ${counts.missing}` : ""}</p>
+      <p>${escapeHtml(translateCode(item.summary.regime))} · ${escapeHtml(translateCode(item.summary.location))}${counts.missing ? ` · 遗漏 ${counts.missing}` : ""}</p>
       <div class="mini-track"><i style="width:${percent}%"></i></div></button>`;
   }).join("");
   document.querySelectorAll(".case-button").forEach((button) => button.addEventListener("click", () => loadCase(button.dataset.caseId)));
@@ -120,11 +178,11 @@ function loadCase(caseId) {
 function renderCaseHeader() {
   const item = state.currentCase;
   $("#symbolBadge").textContent = item.symbol; $("#timeframeBadge").textContent = item.timeframe;
-  $("#barStatus").textContent = item.bar_status; $("#caseTitle").textContent = item.title;
+  $("#barStatus").innerHTML = codeWithOriginal(item.bar_status); $("#caseTitle").textContent = item.title;
   $("#caseTimestamp").textContent = `数据截止 ${new Date(item.data_end_utc).toLocaleString("zh-CN", { hour12: false })} · ${item.interpreter_name}`;
   const summary = item.summary;
-  const cells = [["REGIME", summary.regime], ["CONTEXT", summary.context_direction], ["CURRENT LEG", summary.leg_direction], ["PHASE", summary.phase], ["LOCATION", summary.location], ["CONFIDENCE", Number(summary.confidence).toFixed(2)]];
-  $("#stateStrip").innerHTML = cells.map(([label, value]) => `<div class="state-cell"><span>${label}</span><strong>${escapeHtml(value)}</strong></div>`).join("");
+  const cells = [["regime", summary.regime], ["context_direction", summary.context_direction], ["leg_direction", summary.leg_direction], ["phase", summary.phase], ["location", summary.location], ["confidence", Number(summary.confidence).toFixed(2)]];
+  $("#stateStrip").innerHTML = cells.map(([field, value]) => `<div class="state-cell"><span>${STATE_LABELS[field]}</span><strong>${field === "confidence" ? escapeHtml(value) : codeWithOriginal(value)}</strong></div>`).join("");
   $("#caseProgress").textContent = `${Object.keys(state.review.annotations).length} / ${item.items.length}`;
   $("#saveState").textContent = state.review.updated_utc ? `上次保存 ${new Date(state.review.updated_utc).toLocaleString("zh-CN", { hour12: false })}` : "自动保存在本浏览器";
 }
@@ -152,8 +210,8 @@ function renderReviewItems() {
     const annotation = state.review.annotations[item.item_id]; const status = annotation?.verdict || "UNREVIEWED";
     const confidence = item.confidence == null ? "—" : Number(item.confidence).toFixed(2);
     return `<article class="review-item status-${status} ${item.item_id === state.selectedItemId ? "focused" : ""}" data-item-id="${escapeHtml(item.item_id)}">
-      <div class="claim-body"><div class="claim-meta"><span class="category-label">${escapeHtml(CATEGORY_NAMES[item.category] || item.category)} · ${escapeHtml(item.object_type)}</span><span class="confidence">置信 ${confidence}</span></div>
-      <p>${escapeHtml(item.statement_cn)}</p>${annotation?.verdict === "INCORRECT" ? `<div class="saved-correction"><strong>你的修正：</strong>${escapeHtml(annotation.corrected_value)}</div>` : ""}</div>
+      <div class="claim-body"><div class="claim-meta"><span class="category-label">${escapeHtml(CATEGORY_NAMES[item.category] || item.category)} · ${codeWithOriginal(item.object_type)}</span><span class="confidence">置信 ${confidence}</span></div>
+      <p>${translateStatementHtml(item.statement_cn)}</p>${annotation?.verdict === "INCORRECT" ? `<div class="saved-correction"><strong>你的修正：</strong>${escapeHtml(annotation.corrected_value)}</div>` : ""}</div>
       <div class="claim-actions"><button class="verdict-button correct ${status === "CORRECT" ? "selected" : ""}" data-verdict="CORRECT">✓ 正确</button><button class="verdict-button incorrect ${status === "INCORRECT" ? "selected" : ""}" data-verdict="INCORRECT">× 错误</button><button class="verdict-button uncertain ${status === "UNCERTAIN" ? "selected" : ""}" data-verdict="UNCERTAIN">? 不确定</button></div></article>`;
   }).join("");
   document.querySelectorAll(".review-item").forEach((element) => element.addEventListener("click", (event) => { state.selectedItemId = element.dataset.itemId; if (!event.target.closest(".verdict-button")) renderReviewItems(); }));
@@ -170,7 +228,7 @@ function chooseVerdict(itemId, verdict) {
 
 function openCorrection(itemId) {
   const item = state.currentCase.items.find((candidate) => candidate.item_id === itemId); const prior = state.review.annotations[itemId];
-  state.correctionItemId = itemId; $("#systemStatement").textContent = item.statement_cn;
+  state.correctionItemId = itemId; $("#systemStatement").textContent = translateStatement(item.statement_cn);
   $("#correctedValue").value = prior?.corrected_value || ""; $("#correctionComment").value = prior?.comment || "";
   $("#errorTags").innerHTML = ERROR_TAGS.map(([value, label]) => `<label class="tag-check"><input type="checkbox" value="${value}" ${prior?.error_tags?.includes(value) ? "checked" : ""}><span>${label}</span></label>`).join("");
   $("#correctionDialog").showModal(); $("#correctedValue").focus();
