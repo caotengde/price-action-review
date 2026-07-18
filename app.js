@@ -235,7 +235,7 @@ async function confirmSubmission() {
     const title = `[Semantic Review] ${state.currentCase.symbol} ${state.currentCase.timeframe} · ${payload.submission_id.slice(0, 8)}`;
     const incorrect = payload.annotations.filter((item) => item.verdict === "INCORRECT").length;
     const body = `## Price Action Semantic Review\n\n- Case: \`${payload.case_id}\`\n- Fingerprint: \`${payload.case_fingerprint}\`\n- Reviewed claims: **${payload.annotations.length}**\n- Incorrect claims: **${incorrect}**\n- Missing interpretations: **${payload.missing_interpretations.length}**\n- Experience: \`${payload.contributor.experience_level}\`\n\nPlease submit this issue without editing the machine payload below. A validation workflow will add it to the public dataset.\n\n<!-- PRICE_ACTION_REVIEW_GZIP_BASE64\n${compressed}\n-->`;
-    const issueUrl = `https://github.com/${REPOSITORY}/issues/new?labels=semantic-review&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
+    const issueUrl = `https://github.com/${REPOSITORY}/issues/new?template=semantic-review.md&title=${encodeURIComponent(title)}&body=${encodeURIComponent(body)}`;
     if (issueUrl.length > 30000) throw new Error("本次标签过多，提交包超出安全长度，请分周期提交");
     state.pendingIssueUrl = issueUrl; window.open(issueUrl, "_blank", "noopener,noreferrer");
     $("#submitDialog").close(); showToast("已打开 GitHub，请登录并点击 Submit new issue");
