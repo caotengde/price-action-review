@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "dataset_name": "public_owner_centered_price_action_review",
-  "generated_utc": "2026-07-18T23:20:26.065215+00:00",
+  "generated_utc": "2026-07-21T19:46:48.763153+00:00",
   "case_count": 5,
   "trading_enabled": false,
   "self_audit": {
     "method": "three_lens_explicit_understanding_self_audit_v1",
-    "generated_utc": "2026-07-18T23:17:55.038225+00:00",
+    "generated_utc": "2026-07-21T19:46:13.860061+00:00",
     "summary": {
       "total_items": 147,
       "auto_accepted": 121,
@@ -19,7 +19,7 @@
   "cases": [
     {
       "case_id": "nas100_w1_842740cb5f",
-      "case_fingerprint": "f7e5449c24e861af577295e2d63f0026f32d35adb34564980126b8b03fab012f",
+      "case_fingerprint": "1aca37dd21053ad58c8b62e172b39aa338656e9be5d0a3c4573c81a9ecceaf09",
       "symbol": "NAS100",
       "timeframe": "W1",
       "title": "NAS100 · W1 市场理解审核",
@@ -27,7 +27,7 @@
       "bar_open_time": "2026-07-13T00:00:00+00:00",
       "bar_status": "DEVELOPING",
       "image_url": "./assets/cases/nas100_w1_842740cb5f.png",
-      "image_sha256": "df66c80388de3117cadf029f413edd3527a8309d02ab70a45ecdb4a25942081c",
+      "image_sha256": "23685287d094f9e41566b07aceab7b42292eb8cd4f9603b47cba2019e5158d97",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "TRANSITION",
@@ -262,7 +262,7 @@
     },
     {
       "case_id": "nas100_d1_0abb86a2e5",
-      "case_fingerprint": "af17d7d374db67d843df7b41d7532086a62082a128937300f58790a25df951af",
+      "case_fingerprint": "25e2fb5023f167b6eb090d19de50ae22af893a8face4a30fbf4736a48ee25800",
       "symbol": "NAS100",
       "timeframe": "D1",
       "title": "NAS100 · D1 市场理解审核",
@@ -270,7 +270,7 @@
       "bar_open_time": "2026-07-17T00:00:00+00:00",
       "bar_status": "DEVELOPING",
       "image_url": "./assets/cases/nas100_d1_0abb86a2e5.png",
-      "image_sha256": "04587629f977df35aef1f70ea864d1ffd03d7800c0cb11952c36e71a273231d0",
+      "image_sha256": "6db85091321763e5a5f7d75f3380022bf9feb62cc780ef6f00369f6939b85a96",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "RANGE",
@@ -749,7 +749,7 @@
     },
     {
       "case_id": "nas100_h4_9ad2a93c45",
-      "case_fingerprint": "22c7cb1ed6769c0b9849879efd1d63647c8c17fa936c12e2b906d0955a56c7db",
+      "case_fingerprint": "09f6eaccb241ea8087d24826de4a0d6cfa118ccc6b642f57abc9841089584de4",
       "symbol": "NAS100",
       "timeframe": "H4",
       "title": "NAS100 · H4 市场理解审核",
@@ -757,7 +757,7 @@
       "bar_open_time": "2026-07-17T12:00:00+00:00",
       "bar_status": "COMPLETE",
       "image_url": "./assets/cases/nas100_h4_9ad2a93c45.png",
-      "image_sha256": "fd8d879904539eaea91a4a0753dd241ef5e9c417a8fc62ca8dc4fa4e5ea7da96",
+      "image_sha256": "8375c50eafe91c821be7ac3f45bc8583ad51b038d02bb79e21755d7fb14bd08a",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "TREND_DOWN",
@@ -1240,7 +1240,7 @@
     },
     {
       "case_id": "nas100_h1_9060644848",
-      "case_fingerprint": "1c405c8e44d50837720690861d983c0194b7341212b1470b449231cd8204d716",
+      "case_fingerprint": "bd26bca53734260f10d91db4479494fc235ee0509018ac99bbc1bd4406a3d998",
       "symbol": "NAS100",
       "timeframe": "H1",
       "title": "NAS100 · H1 市场理解审核",
@@ -1248,7 +1248,7 @@
       "bar_open_time": "2026-07-17T17:00:00+00:00",
       "bar_status": "COMPLETE",
       "image_url": "./assets/cases/nas100_h1_9060644848.png",
-      "image_sha256": "85dbdcc4ff8a70f66a3d1170a486cc5765b8839c2623f918b76480aa5b0fa132",
+      "image_sha256": "f0e333a3d92711d17ec76e5c54e88c0c6ede78435930f9f08d3cefeb471bf94d",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "TRANSITION",
@@ -1646,7 +1646,7 @@
     },
     {
       "case_id": "nas100_m5_3557d3d9eb",
-      "case_fingerprint": "d75b910090a754f47d1306b846234764eea100e96b74a80c44ad289010c45538",
+      "case_fingerprint": "6beb1e69fdd9a32749c4bf8add6409ab99808b1f908210f89c2e87d66bdfd6e3",
       "symbol": "NAS100",
       "timeframe": "M5",
       "title": "NAS100 · M5 市场理解审核",
@@ -1654,7 +1654,7 @@
       "bar_open_time": "2026-07-17T17:55:00+00:00",
       "bar_status": "COMPLETE",
       "image_url": "./assets/cases/nas100_m5_3557d3d9eb.png",
-      "image_sha256": "3e72d16ef6cfecd4e88844110418e5c4cf745e3bbf63406485560ea2f0a31f85",
+      "image_sha256": "b073ba44fd2429fde24715ec926a6076a37020c3d964ebdab10b1e8c1770ef3a",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "RANGE",
