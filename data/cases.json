@@ -1,33 +1,33 @@
 {
   "schema_version": 1,
   "dataset_name": "public_owner_centered_price_action_review",
-  "generated_utc": "2026-07-21T19:46:48.763153+00:00",
+  "generated_utc": "2026-07-21T20:32:00.156478+00:00",
   "case_count": 5,
   "trading_enabled": false,
   "self_audit": {
     "method": "three_lens_explicit_understanding_self_audit_v1",
-    "generated_utc": "2026-07-21T19:46:13.860061+00:00",
+    "generated_utc": "2026-07-21T20:31:08.189516+00:00",
     "summary": {
-      "total_items": 147,
-      "auto_accepted": 121,
+      "total_items": 138,
+      "auto_accepted": 112,
       "excluded": 26,
-      "acceptance_rate": 0.823129,
+      "acceptance_rate": 0.811594,
       "hard_issue_count": 0
     },
     "passed": true
   },
   "cases": [
     {
-      "case_id": "nas100_w1_842740cb5f",
-      "case_fingerprint": "1aca37dd21053ad58c8b62e172b39aa338656e9be5d0a3c4573c81a9ecceaf09",
+      "case_id": "nas100_w1_2d7d9e8a05",
+      "case_fingerprint": "da6622a55275f9e44b4f8bf245cba86c753d350f51e76d9255ed30c89645f646",
       "symbol": "NAS100",
       "timeframe": "W1",
       "title": "NAS100 · W1 市场理解审核",
       "data_end_utc": "2026-07-17T17:55:00+00:00",
       "bar_open_time": "2026-07-13T00:00:00+00:00",
       "bar_status": "DEVELOPING",
-      "image_url": "./assets/cases/nas100_w1_842740cb5f.png",
-      "image_sha256": "23685287d094f9e41566b07aceab7b42292eb8cd4f9603b47cba2019e5158d97",
+      "image_url": "./assets/cases/nas100_w1_2d7d9e8a05.png",
+      "image_sha256": "5dd889cdc02c1a39325122265610dcb6902398aa0db08d8ce0385cd8d897a91c",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "TRANSITION",
@@ -261,16 +261,16 @@
       ]
     },
     {
-      "case_id": "nas100_d1_0abb86a2e5",
-      "case_fingerprint": "25e2fb5023f167b6eb090d19de50ae22af893a8face4a30fbf4736a48ee25800",
+      "case_id": "nas100_d1_cca2be00ad",
+      "case_fingerprint": "6fdf338c3298080c2888bfcd8ed3d16b3a81571a77f54f14cb6a7eff4a8f7b62",
       "symbol": "NAS100",
       "timeframe": "D1",
       "title": "NAS100 · D1 市场理解审核",
       "data_end_utc": "2026-07-17T17:55:00+00:00",
       "bar_open_time": "2026-07-17T00:00:00+00:00",
       "bar_status": "DEVELOPING",
-      "image_url": "./assets/cases/nas100_d1_0abb86a2e5.png",
-      "image_sha256": "6db85091321763e5a5f7d75f3380022bf9feb62cc780ef6f00369f6939b85a96",
+      "image_url": "./assets/cases/nas100_d1_cca2be00ad.png",
+      "image_sha256": "573efcba469f3dd5547643e0107cc39ed500b74e2a0856e8868725e37e076659",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "RANGE",
@@ -748,16 +748,16 @@
       ]
     },
     {
-      "case_id": "nas100_h4_9ad2a93c45",
-      "case_fingerprint": "09f6eaccb241ea8087d24826de4a0d6cfa118ccc6b642f57abc9841089584de4",
+      "case_id": "nas100_h4_4c79f323f6",
+      "case_fingerprint": "952936429b6c22062f704787b77ee126e209ceb33b42c7a7f4c3c55597adb6cc",
       "symbol": "NAS100",
       "timeframe": "H4",
       "title": "NAS100 · H4 市场理解审核",
       "data_end_utc": "2026-07-17T17:55:00+00:00",
       "bar_open_time": "2026-07-17T12:00:00+00:00",
       "bar_status": "COMPLETE",
-      "image_url": "./assets/cases/nas100_h4_9ad2a93c45.png",
-      "image_sha256": "8375c50eafe91c821be7ac3f45bc8583ad51b038d02bb79e21755d7fb14bd08a",
+      "image_url": "./assets/cases/nas100_h4_4c79f323f6.png",
+      "image_sha256": "1f396f46acccc598e3a389f33a1f196b1f19bfdf3c31929a57a43ec80a2ca74f",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "TREND_DOWN",
@@ -1081,45 +1081,6 @@
           }
         },
         {
-          "item_id": "review_9ea357294873ddfa",
-          "category": "CHANNEL",
-          "object_type": "BEAR_CHANNEL",
-          "statement_cn": "H4 MINOR BEAR 通道，状态 TESTING，通道位置 0.05",
-          "confidence": 0.735123,
-          "self_audit": {
-            "decision": "AUTO_ACCEPTED",
-            "admitted_to_training": true,
-            "reasons": [],
-            "support": 1
-          }
-        },
-        {
-          "item_id": "review_18daa1556441d924",
-          "category": "CHANNEL",
-          "object_type": "BEAR_CHANNEL",
-          "statement_cn": "H4 INTERMEDIATE BEAR 通道，状态 TESTING，通道位置 0.05",
-          "confidence": 0.725078,
-          "self_audit": {
-            "decision": "AUTO_ACCEPTED",
-            "admitted_to_training": true,
-            "reasons": [],
-            "support": 1
-          }
-        },
-        {
-          "item_id": "review_aef4bd431512d305",
-          "category": "CHANNEL",
-          "object_type": "BEAR_CHANNEL",
-          "statement_cn": "H4 MICRO BEAR 通道，状态 TESTING，通道位置 0.03",
-          "confidence": 0.675,
-          "self_audit": {
-            "decision": "AUTO_ACCEPTED",
-            "admitted_to_training": true,
-            "reasons": [],
-            "support": 1
-          }
-        },
-        {
           "item_id": "review_92be5324cfbd50be",
           "category": "CHANNEL",
           "object_type": "BEAR_CHANNEL",
@@ -1239,16 +1200,16 @@
       ]
     },
     {
-      "case_id": "nas100_h1_9060644848",
-      "case_fingerprint": "bd26bca53734260f10d91db4479494fc235ee0509018ac99bbc1bd4406a3d998",
+      "case_id": "nas100_h1_5a173e5b88",
+      "case_fingerprint": "b6b73fc751efe53640b5439233dac66bb9549d9aaa37bdc005c43726d4d56d4f",
       "symbol": "NAS100",
       "timeframe": "H1",
       "title": "NAS100 · H1 市场理解审核",
       "data_end_utc": "2026-07-17T17:55:00+00:00",
       "bar_open_time": "2026-07-17T17:00:00+00:00",
       "bar_status": "COMPLETE",
-      "image_url": "./assets/cases/nas100_h1_9060644848.png",
-      "image_sha256": "f0e333a3d92711d17ec76e5c54e88c0c6ede78435930f9f08d3cefeb471bf94d",
+      "image_url": "./assets/cases/nas100_h1_5a173e5b88.png",
+      "image_sha256": "fd2e19ca5c18b691279d6e72593eecd7183c6f20f337c50e6392585cdf6aabe1",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "TRANSITION",
@@ -1498,45 +1459,6 @@
           }
         },
         {
-          "item_id": "review_235852b998bdba3f",
-          "category": "CHANNEL",
-          "object_type": "BEAR_CHANNEL",
-          "statement_cn": "H1 MICRO BEAR 通道，状态 OVERSHOOT_DOWN，通道位置 -0.26",
-          "confidence": 0.790816,
-          "self_audit": {
-            "decision": "AUTO_ACCEPTED",
-            "admitted_to_training": true,
-            "reasons": [],
-            "support": 1
-          }
-        },
-        {
-          "item_id": "review_2f61e643e4c8543d",
-          "category": "CHANNEL",
-          "object_type": "BEAR_CHANNEL",
-          "statement_cn": "H1 INTERMEDIATE BEAR 通道，状态 TESTING，通道位置 0.17",
-          "confidence": 0.789286,
-          "self_audit": {
-            "decision": "AUTO_ACCEPTED",
-            "admitted_to_training": true,
-            "reasons": [],
-            "support": 1
-          }
-        },
-        {
-          "item_id": "review_e23d814700aa84a2",
-          "category": "CHANNEL",
-          "object_type": "BEAR_CHANNEL",
-          "statement_cn": "H1 MAJOR BEAR 通道，状态 TESTING，通道位置 0.02",
-          "confidence": 0.764667,
-          "self_audit": {
-            "decision": "AUTO_ACCEPTED",
-            "admitted_to_training": true,
-            "reasons": [],
-            "support": 1
-          }
-        },
-        {
           "item_id": "review_324f76a98e291279",
           "category": "MEASURED_MOVE",
           "object_type": "BEAR_MEASURED_MOVE",
@@ -1645,16 +1567,16 @@
       ]
     },
     {
-      "case_id": "nas100_m5_3557d3d9eb",
-      "case_fingerprint": "6beb1e69fdd9a32749c4bf8add6409ab99808b1f908210f89c2e87d66bdfd6e3",
+      "case_id": "nas100_m5_160f4419e3",
+      "case_fingerprint": "0482fd748a39ddb28faad778f2c74ff9688d0eba9c40c480291ce982dc3a1ba1",
       "symbol": "NAS100",
       "timeframe": "M5",
       "title": "NAS100 · M5 市场理解审核",
       "data_end_utc": "2026-07-17T17:55:00+00:00",
       "bar_open_time": "2026-07-17T17:55:00+00:00",
       "bar_status": "COMPLETE",
-      "image_url": "./assets/cases/nas100_m5_3557d3d9eb.png",
-      "image_sha256": "b073ba44fd2429fde24715ec926a6076a37020c3d964ebdab10b1e8c1770ef3a",
+      "image_url": "./assets/cases/nas100_m5_160f4419e3.png",
+      "image_sha256": "d6b9cd6c06a5eb2bdf0ec21f45ca2145047c1296c324c75930c10837bf3c4f61",
       "interpreter_name": "explicit_multi_timeframe_market_interpreter_v3",
       "summary": {
         "regime": "RANGE",
@@ -1957,45 +1879,6 @@
           "object_type": "RESISTANCE",
           "statement_cn": "M5 RESISTANCE 区域 28606.2–28640.1，状态 FAILED_BREAKOUT_DOWN，触碰 4 次",
           "confidence": 0.8876,
-          "self_audit": {
-            "decision": "AUTO_ACCEPTED",
-            "admitted_to_training": true,
-            "reasons": [],
-            "support": 1
-          }
-        },
-        {
-          "item_id": "review_e52069932a9eec15",
-          "category": "CHANNEL",
-          "object_type": "BEAR_CHANNEL",
-          "statement_cn": "M5 MINOR BEAR 通道，状态 OVERSHOOT_DOWN，通道位置 -0.59",
-          "confidence": 0.693719,
-          "self_audit": {
-            "decision": "AUTO_ACCEPTED",
-            "admitted_to_training": true,
-            "reasons": [],
-            "support": 1
-          }
-        },
-        {
-          "item_id": "review_c8bffad15d3af514",
-          "category": "CHANNEL",
-          "object_type": "BULL_CHANNEL",
-          "statement_cn": "M5 MICRO BULL 通道，状态 OVERSHOOT_DOWN，通道位置 -0.29",
-          "confidence": 0.693188,
-          "self_audit": {
-            "decision": "AUTO_ACCEPTED",
-            "admitted_to_training": true,
-            "reasons": [],
-            "support": 1
-          }
-        },
-        {
-          "item_id": "review_472320a0c151e428",
-          "category": "CHANNEL",
-          "object_type": "BEAR_CHANNEL",
-          "statement_cn": "M5 MICRO BEAR 通道，状态 OVERSHOOT_DOWN，通道位置 -0.47",
-          "confidence": 0.613696,
           "self_audit": {
             "decision": "AUTO_ACCEPTED",
             "admitted_to_training": true,
